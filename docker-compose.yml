@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  movies:
+    image: kshitij0798/paymovies:latest
+    ports:
+      - "81:80"
+    deploy:
+      replicas: 3
+  train:
+    image: kshitij0798/paytrain:latest
+    ports:
+      - "82:80"
+    deploy:
+      replicas: 3
+  dth:
+    image: kshitij0798/paydth:latest
+    ports:
+      - "83:80"
+    deploy:
+      replicas: 3
+  recharge:
+    image: kshitij0798/payrecharge:latest
+    ports:
+      - "84:80"
+    deploy:
+      replicas: 3
