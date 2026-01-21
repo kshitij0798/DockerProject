@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    
+    stages {
+       stage('checkout'){
+           steps{
+               git branch: 'main', url: 'https://github.com/kshitij0798/DockerProject.git'
+           }
+       }
+         stage('build'){
+           steps{
+               sh 'docker build -t $img .'
+           }
+       }
+         stage('tag'){
+           steps{
+               sh 'docker tag $img $repo'
+           }
+       }
+          stage('push'){
+           steps{
+               sh 'docker login -u kshitij0798  -p $pass'
+               sh 'docker push $repo'
+           }
+       }
+           stage('deploy'){
+           steps{
+               sh 'docker stack deploy -c docker-compose.yml paytm'
+               
+           }
+       }
+       
+       
+      
+    }
+}
