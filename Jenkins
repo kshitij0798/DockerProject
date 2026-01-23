@@ -19,8 +19,8 @@ pipeline {
        }
           stage('push'){
            steps{
-               sh 'docker login -u kshitij0798  -p $pass'
-               sh 'docker push $repo'
+               sh 'docker login -u kshitij0798 -p $pass'
+              sh 'docker push $repo'
            }
        }
            stage('deploy'){
