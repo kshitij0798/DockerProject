@@ -19,6 +19,11 @@ This project demonstrates an **end-to-end DevOps pipeline** using **Docker**, **
 
 ## Install docker on manager and worker server
 
--
+```bash
+
+yum install docker -y
+systemctl start docker
+systemctl status docker
+```
 
 
